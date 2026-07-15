@@ -17,7 +17,7 @@
 	</context-param>
 	<context-param>
 		<param-name>user</param-name>
-		<param-value>patilbv2002@gmail.com</param-value>
+		<param-value>mailId</param-value>
 	</context-param>
 	<context-param>
 		<param-name>name</param-name>
@@ -25,7 +25,7 @@
 	</context-param>
 	<context-param>
 		<param-name>pass</param-name>
-		<param-value>ykuinguuwhgloxkv</param-value>
+		<param-value>Password</param-value>
 	</context-param>
 	<session-config>
 		<session-timeout>30</session-timeout>
