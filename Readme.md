@@ -1,212 +1,272 @@
-<div align="center">
-
 # 🚑 Ambulance Booking System
 
-A Java-based web application that enables patients to book ambulances online while allowing drivers and administrators to efficiently manage ambulance operations — complete with live tracking, role-based authentication, email notifications, and reporting.
+![Java](https://img.shields.io/badge/Java-17%2B-007396?logo=java&logoColor=white)
+![JSP](https://img.shields.io/badge/JSP-Java%20Server%20Pages-blue)
+![Servlets](https://img.shields.io/badge/Servlets-Jakarta%20Servlet-success)
+![JDBC](https://img.shields.io/badge/JDBC-Database-orange)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
+![Apache Tomcat](https://img.shields.io/badge/Apache%20Tomcat-10-F8DC75?logo=apachetomcat&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white)
+![Leaflet.js](https://img.shields.io/badge/Leaflet.js-Maps-199900?logo=leaflet&logoColor=white)
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![JSP](https://img.shields.io/badge/JSP-orange?style=for-the-badge&logo=java&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
-![Apache Tomcat](https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
-![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)
+> A Java EE web application for ambulance booking, administration and real-time ambulance tracking.
 
-</div>
-
----
-
-## 📌 Project Overview
-
-The **Ambulance Booking System** is a centralized web platform designed to simplify ambulance booking and management for emergency services. It supports three distinct user roles — each with a dedicated dashboard and set of features:
-
-- 👤 **Patient**
-- 🚑 **Driver**
-- 🛠️ **Administrator**
-
----
-
-## 📸 Screenshots
-
-> *Add screenshots or a demo GIF here to showcase the app in action.*
-
-| Home Page | Patient Dashboard | Live Tracking |
-|:---:|:---:|:---:|
-| ![Home Page](docs/screenshots/home.png) | ![Patient Dashboard](docs/screenshots/patient-dashboard.png) | ![Live Tracking](docs/screenshots/live-tracking.png) |
-
-| Driver Dashboard | Admin Dashboard | Reports |
-|:---:|:---:|:---:|
-| ![Driver Dashboard](docs/screenshots/driver-dashboard.png) | ![Admin Dashboard](docs/screenshots/admin-dashboard.png) | ![Reports](docs/screenshots/reports.png) |
-
-*(Place your image files in a `docs/screenshots/` folder in the repo, matching the file names above, or update the paths to wherever you host them.)*
-
----
-
-## ✨ Features
-
-### 👤 Patient Module
-- Patient registration & login
-- Secure password management
-- Book an ambulance
-- View booking status
-- View assigned ambulance
-- Track assigned ambulance in real time
-- View booking & payment details
-- Submit feedback & complaints
-- Print invoice
-- Manage profile
-
-### 🚑 Driver Module
-- Driver registration & login
-- Request ambulance registration
-- Update driver profile
-- Change password
-- View assigned bookings
-- Accept patient requests
-- Live location updates
-- Driver heartbeat & online status
-- Logout handling
-
-### 🛠️ Admin Module
-- Admin login
-- Manage ambulances
-- Manage drivers
-- View patients
-- Approve ambulance requests
-- View complaints & feedback
-- Generate reports
-- Manage admin profile
-
----
-
-## 📍 Live Ambulance Tracking
-
-- Real-time driver location updates
-- Patient-side ambulance tracking
-- Public tracking support (no login required)
+## 📌 Highlights
+- Three user roles: Patient, Driver, Administrator
+- Ambulance booking & management
+- Admin dashboard & reports
+- SMTP email integration
+- PDF invoice generation
+- Real-time ambulance tracking using Browser Geolocation API, Leaflet.js and OpenStreetMap
+- AJAX polling for live updates
 - Driver online/offline detection
-- Continuous location updates via AJAX
-- Interactive map visualization powered by **Leaflet.js**
+- Tracking history and last seen status
 
 ---
 
-## 📊 Reports
 
-The system generates reports for:
+# 🎯 Objective
 
-- Patients
-- Drivers
-- Ambulances
-- Bookings
-- Payments
-- Contact requests
-- Feedback & complaints
+The objective of this project is to streamline ambulance booking and management through a centralized web application.
+
+The system enables:
+- Patients to book ambulances online and monitor booking status.
+- Drivers to manage assigned bookings and share their live location.
+- Administrators to manage patients, drivers, ambulances and reports efficiently.
+
+The real-time ambulance tracking module improves transparency by allowing patients to monitor the ambulance's current location and estimated arrival progress.
+
+
+
+# ⭐ My Contributions
+
+This project was originally developed as an existing Java EE application. My work focused on significantly enhancing and extending the existing application rather than developing the complete Ambulance Booking System from scratch. My primary contribution was designing and implementing the complete Live Ambulance Tracking module, along with improvements to the backend, database schema, SMTP configuration, UI, documentation, and overall project structure.
+
+Major contributions include:
+
+- Designed and implemented the complete Live Ambulance Tracking module.
+- Integrated Browser Geolocation API.
+- Integrated Leaflet.js with OpenStreetMap.
+- Developed AJAX-based real-time location updates.
+- Implemented Driver Online/Offline detection.
+- Added Driver Last Seen functionality.
+- Added Driver Tracking History.
+- Modified the MySQL database schema to support tracking.
+- Fixed backend bugs and improved application stability.
+- Enhanced UI pages and overall application flow.
+- Configured SMTP email functionality.
+- Replaced sensitive credentials with secure placeholders for public release.
+- Prepared the project for GitHub with documentation, screenshots and SQL setup.
 
 ---
 
-## 📧 Email Functionality
+# 🏗️ Architecture
 
-- Forgot password recovery
-- Account-related notifications
+```text
++-------------+      HTTP       +-------------------------+
+|   Browser   | <-------------> | JSP / Servlets          |
++-------------+                 +-----------+-------------+
+                                            |
+                                            v
+                                     Business Logic
+                                            |
+                               +------------+------------+
+                               | JDBC / MySQL Connector |
+                               +------------+------------+
+                                            |
+                                            v
+                                        MySQL Database
 
----
+Patient / Driver Browser
+        |
+Geolocation API
+        |
+AJAX Polling
+        |
+Leaflet.js + OpenStreetMap
+        |
+Live Tracking Module
+```
 
-## 🛠️ Tech Stack
+# 👥 User Roles
+
+## Patient
+- Registration
+- Login
+- Book Ambulance
+- Track Ambulance
+- Booking Status
+- Payment Details
+- Invoice
+- Feedback
+- Profile
+
+## Driver
+- Login
+- Accept Booking
+- Live Location
+- Availability
+- Profile
+
+## Administrator
+- Dashboard
+- Manage Patients
+- Manage Drivers
+- Manage Ambulances
+- Reports
+
+# 🛰️ Live Tracking
+
+Uses:
+
+- Browser Geolocation API
+- Leaflet.js
+- OpenStreetMap
+- AJAX Polling
+- JDBC
+- MySQL
+
+Capabilities:
+
+- Real-time ambulance tracking
+- Driver online/offline detection
+- Driver last seen
+- Tracking history
+- Public tracking page
+
+# 💻 Technology Stack
 
 | Layer | Technologies |
-|---|---|
-| **Backend** | Java, JSP, Servlets, JDBC |
-| **Frontend** | HTML, CSS, JavaScript, Bootstrap, jQuery |
-| **Database** | MySQL |
-| **Server** | Apache Tomcat |
-| **Libraries** | Jakarta Mail, iText PDF, MySQL Connector/J, Leaflet.js (OpenStreetMap) |
+|-------|--------------|
+| Backend | Java, JSP, Servlets, JDBC |
+| Frontend | HTML, CSS, JavaScript, Bootstrap, jQuery |
+| Database | MySQL |
+| Server | Apache Tomcat |
+| Libraries | Leaflet.js, Jakarta Mail, iText PDF, MySQL Connector/J |
 
----
+# 🗄️ Database
 
-## 📂 Project Structure
+The repository contains the complete MySQL database script required to run the application.
 
-```
+- The database schema is provided in `database/ambulancedb.sql`.
+- Import this SQL file into MySQL before starting the project.
+- Update your database connection details inside `DatabaseConnection.java` before deployment.
+
+# 📸 Screenshot Gallery
+
+| Home | Patient Dashboard |
+|------|------|
+| ![](docs/screenshots/home-page.png) | ![](docs/screenshots/patient-dashboard.png) |
+
+| Booking | Tracking |
+|------|------|
+| ![](docs/screenshots/patient-ambulance-booking.png) | ![](docs/screenshots/patient-ambulance-tracking.png) |
+
+| Driver | Admin |
+|------|------|
+| ![](docs/screenshots/driver-dashboard.png) | ![](docs/screenshots/admin-dashboard.png) |
+
+| View Patients | Reports |
+|------|------|
+| ![](docs/screenshots/admin-view-patients.png) | ![](docs/screenshots/admin-generate-reports.png) |
+
+# 📁 Repository Structure
+
+```text
 AmbulanceBookingService
 │
 ├── src/
-│   ├── admin/
-│   ├── patient/
-│   ├── driver/
-│   ├── reports/
-│   ├── email/
-│   ├── feedback/
-│   └── connection/
-│
 ├── WebContent/
-│   ├── JSP Pages
-│   ├── CSS
-│   ├── JavaScript
-│   ├── Images
-│   ├── Libraries
-│   └── WEB-INF
-│
-└── Database
+├── database/
+│   └── ambulancedb.sql
+├── docs/
+│   └── screenshots/
+│       ├── home-page.png
+│       ├── patient-dashboard.png
+│       ├── patient-ambulance-booking.png
+│       ├── patient-ambulance-tracking.png
+│       ├── driver-dashboard.png
+│       ├── admin-dashboard.png
+│       ├── admin-view-patients.png
+│       └── admin-generate-reports.png
+├── .settings/
+├── .classpath
+├── .project
+├── .gitignore
+└── README.md
 ```
 
----
 
-## 🔐 User Roles
+### Directory Overview
 
-| Role | Responsibilities |
-|---|---|
-| **Patient** | Book ambulances, track requests, manage profile |
-| **Driver** | Accept requests, update location, manage ambulance |
-| **Admin** | Manage the complete system — drivers, ambulances, and reports |
+| Directory | Description |
+|-----------|-------------|
+| `src/` | Java source code including Servlets and business logic. |
+| `WebContent/` | JSP pages, CSS, JavaScript, images and web resources. |
+| `database/` | Contains the MySQL database script. |
+| `docs/screenshots/` | Contains screenshots used in the README. |
 
----
+# 📋 Prerequisites
 
-## 🚀 Installation
+- Java JDK 17 or later
+- Eclipse IDE
+- Apache Tomcat 10
+- MySQL 8.0+
+- Git (optional)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Bhavikvpatil007/Ambulance-Booking-System.git
-   ```
+# 🚀 Installation
 
-2. **Import the project** into Eclipse (or your preferred Java IDE).
+1. Clone the repository.
+2. Import the project into Eclipse.
+3. Configure Apache Tomcat.
+4. Import `database/ambulancedb.sql` into MySQL.
+5. Configure database credentials in `DatabaseConnection.java`.
+6. Configure SMTP placeholders inside `web.xml`.
+7. Run the project on Tomcat.
 
-3. **Configure Apache Tomcat** as the server for the project.
+# 🔒 Security Notice
 
-4. **Create the MySQL database** using the provided schema/SQL file.
+SMTP email uses Gmail App Password authentication.
 
-5. **Update database credentials** in:
-   ```
-   DatabaseConnection.java
-   ```
+Before running the project, replace:
 
-6. **Add required JAR files** to the project's build path (if not already present):
-   - Jakarta Mail
-   - iText PDF
-   - MySQL Connector/J
+```text
+<YOUR_EMAIL>
+<YOUR_APP_PASSWORD>
+```
 
-7. **Run the project** on Tomcat and access it via `http://localhost:8080/`.
+inside `web.xml`.
 
----
+**Never commit your Gmail address or Google App Password to GitHub.**
 
-## 📈 Future Enhancements
+If credentials are accidentally exposed, revoke the Google App Password immediately and generate a new one.
 
-- [ ] Migrate to Spring Boot
-- [ ] Add Spring Security
-- [ ] JWT-based authentication
-- [ ] REST API layer
-- [ ] Online payment gateway integration
-- [ ] SMS notifications
-- [ ] Push notifications
-- [ ] Docker deployment
-- [ ] Microservices architecture
+# 🚀 Future Improvements
 
----
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- REST APIs
+- Docker
+- Payment Gateway
+- SMS Notifications
+- Push Notifications
+- Microservices
 
-## 👨‍💻 Author
+# 👤 Author
 
 **Bhavik Patil**
-GitHub: [@Bhavikvpatil007](https://github.com/Bhavikvpatil007)
 
----
+GitHub: https://github.com/Bhavikvpatil007
 
-## 📄 License
+LinkedIn: https://www.linkedin.com/in/bhavikvpatil007/
 
-This project is developed for **educational and learning purposes only**. It is not licensed for commercial use.
+Repository:
+
+https://github.com/Bhavikvpatil007/Ambulance-Booking-System
+
+# 📄 License
+
+This project is intended for educational and learning purposes.
+
+Feel free to explore, learn from, and modify the project for educational use.

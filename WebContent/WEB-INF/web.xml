@@ -17,7 +17,7 @@
 	</context-param>
 	<context-param>
 		<param-name>user</param-name>
-		<param-value>mailId</param-value>
+		<param-value>your-email@gmail.com</param-value>
 	</context-param>
 	<context-param>
 		<param-name>name</param-name>
@@ -25,7 +25,7 @@
 	</context-param>
 	<context-param>
 		<param-name>pass</param-name>
-		<param-value>Password</param-value>
+		<param-value>your-app-password</param-value>
 	</context-param>
 	<session-config>
 		<session-timeout>30</session-timeout>
